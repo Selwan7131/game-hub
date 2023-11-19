@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/images_url";
+import { wrap } from "framer-motion";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
@@ -34,6 +35,8 @@ const Genres = ({ onSelectGenre, selectedGenre }: Props) => {
               variant="link"
               onClick={() => onSelectGenre(genre)}
               fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+              whiteSpace="pre-wrap"
+              style={{ textAlign: "left" }}
             >
               {genre.name}
             </Button>
